@@ -8,8 +8,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
   <link rel="stylesheet" href="../try/bootstrap/css/bootstrap.min.css">
   <script src="../try/jquery/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="../try/popper/popper.min.js"></script>
   <script src="../try/bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body class="jumbotron">
 
@@ -17,7 +18,7 @@
     <div class="container">
       <h2>Houses</h2>
       <p>You can add a new house by clicking the new house button.</p>
-      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">New house</button>
+      <button  type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-plus"></span> New house</button>
       <div id="demo" class="collapse hide">
         <div class="col-md-12 ">
           <div class="card">
