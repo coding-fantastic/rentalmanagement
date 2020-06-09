@@ -10,6 +10,7 @@
 <body class="jumbotron">
 
   <div class="container ">
+
     <h2>Houses</h2>
     <p>You can add a new house by clicking the new house button.</p>
     <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">New house</button>
@@ -40,7 +41,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="container">
+
       <div class="col-md-12 ">
         <div class="card">
           <div class="card-header">
@@ -72,12 +73,12 @@
         </div>
       </div>
 
+
     </div>
-    </div>
-  </div>
 
 
-  <div class="container">
+
+
     <h2>Houses</h2>
     <p>This table shows all the houses registered.</p>
     <table class="table table-hover">
@@ -104,7 +105,28 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- This is the card. This card can be replicated anywhere. -->
+    <div class="card">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      <a href="#">
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </a>
+    </div>
+    <!-- End of the card  -->
+
+
   </div>
+
 
 </body>
 </html>
