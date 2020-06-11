@@ -8,10 +8,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
   <!-- datatable cdn start  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-           <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-           <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
   <!-- datatable cdn end -->
   <link rel="stylesheet" href="../try/bootstrap/css/bootstrap.min.css">
   <script src="../try/jquery/jquery.min.js"></script>
@@ -20,35 +20,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 </head>
 <body class="jumbotron">
+  <?php include '../database/db.php'; ?>
   <!-- start of navigation bar  -->
 
 
   <!-- end of navigation bar -->
 
-
-  <?php
-  require('../database/db.php');
-  // If form submitted , insert values into the database.
-  if (isset($_REQUEST['housenumber'])){
-    $housenumber = trim($_REQUEST['housenumber']);
-    // uppercase first character of each word in a string
-    $housenumber = ucwords($housenumber);
-    $features = trim($_REQUEST['features']);
-    // uppercase first character of each word in a string
-    $features = ucwords($features);
-    $rent = trim($_REQUEST['rent']);
-    $status = trim($_REQUEST['status']);
-    // echo "housenumber:".$housenumber."-features".$features."-rent".$rent."-status".$status;
-    $query = "insert into `houses` (house_number, features, status, rent) VALUES ('$housenumber','$features','$status','$rent')";
-    $result = mysqli_query($con, $query);
-
-    if($result){
-      echo "<div class='form'>
-      <h3>You have registered successfully.</h3>
-      ";
-    }
-    }else{
-    ?>
 
   <div class="container ">
 
@@ -64,28 +41,15 @@
             </div>
             <div class="card-body">
               <div class="form-group">
-                <!-- <form   action="" method="post">
-                  <input class="form-control" type="text" name="housenumber" placeholder="housenumber" required> <br>
-                  <textarea class="form-control" name="features" placeholder="features" rows="3" cols="80"></textarea> <br>
-                  <input class="form-control" type="text" name="rent" placeholder="rent" > <br>
-                  <select  class="form-control" name="status" >
-                    <option value="vacant">vacant</option>
-                    <option value="occupied">occupied</option>
-                  </select>  <br>
-                  <input class="btn btn-primary" type="submit" name="submit" value="Register"> <br>
-
-
-                </form> -->
-                <form class="" action="" method="post">
+                <form class="" action="housesformConnect.php" method="post">
                   <input class="form-control" type="text" name="housenumber" placeholder="housenumber" required> <br>
                   <textarea class="form-control" name="features" placeholder="features" rows="3" cols="80" ></textarea> <br>
                   <input class="form-control" type="text" name="rent" placeholder="rent" >  <br>
                   <select class="form-control" name="status" >
-                    <option value="vacant">vacant</option>
-                    <option value="occupied">occupied</option>
+                    <option value="Vacant">Vacant</option>
+                    <option value="Occupied">Occupied</option>
                   </select>  <br>
                   <input class="btn btn-primary" type="submit" name="submit" value="Register" >
-
                 </form>
               </div>
             </div>
@@ -93,7 +57,6 @@
         </div>
       </div>
     </div>
-    <?php }?>
     <br>
 
 
