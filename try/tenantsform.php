@@ -47,12 +47,12 @@
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>  <br>
-                  <input class="form-control" type="text" name="national_id" placeholder="National ID" >  <br>
-                  <input class="form-control" type="text" name="mobile_number" placeholder="Mobile Number" >  <br>
+                  <input class="form-control" type="text" name="national_id" placeholder="National ID" maxlength="8" >  <br>
+                  <input class="form-control" type="text" name="mobile_number" placeholder="Mobile Number" maxlength="10" >  <br>
                   <input class="form-control" type="text" name="email" placeholder="E-mail" >  <br>
                   <input class="form-control" type="text" name="registration_date"  placeholder="Registration Date" >  <br>
-                  <input class="form-control" type="text" name="house" placeholder="House Number" >  <br>
-                  <select class="form-control" name="Status" >
+                  <input class="form-control" type="text" name="housenumber" placeholder="House Number" >  <br>
+                  <select class="form-control" name="status" >
                     <option value="Tenant In">Tenant In</option>
                     <option value="Tenant Out">Tenant Out</option>
                   </select>  <br>
@@ -120,7 +120,7 @@
   </div>
 <script>
 $(document).ready(function () {
-  $('#housestable').DataTable();
+  // $('#housestable').DataTable();
 
   // check https://stackoverflow.com/questions/23101966/bootstrap-alert-auto-close for success alert
 
