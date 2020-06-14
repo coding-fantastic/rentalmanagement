@@ -19,7 +19,7 @@ if (isset($_REQUEST['housenumber'])){
   if($result){
     echo "<div class='form'>
     <h3>You have registered successfully.</h3>  </div>";
-    echo "we here";
+    
     sleep(2);
     header ("Location: http://localhost/websites/rentalms/try/tenantsform.php");
   }
