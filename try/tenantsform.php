@@ -42,7 +42,7 @@
             <div class="card-body">
               <div class="form-group">
                 <form class="" action="tenantsformConnect.php" method="post">
-                  <input class="form-control" type="text" name="fullname" placeholder="fullname" required> <br>
+                  <input class="form-control" type="text" name="fullname" placeholder="Fullname" required> <br>
                   <select class="form-control" name="gender" >
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -73,7 +73,7 @@
       <div class="col-md-12 ">
         <div class="card">
           <div class="card-header">
-            <h2>View available houses</h2>
+            <h2>View tenants</h2>
           </div>
           <div class="card-body">
               <!--  datatable  start-->
