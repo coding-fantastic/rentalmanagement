@@ -134,24 +134,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
   </div>
 
-  <div class="w3-container">
-    <h5>Recent Payments</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-      <?php
-      $query= "select * from payments order by id desc";
-      $result=mysqli_query($con, $query);
-      while ($row = mysqli_fetch_array($result)){
-        echo '<tr>
-          <td>'.$row["house"].'</td>
-          <td>'.$row["balance"].'</td>
-        </tr>';
-      }
-      ?>
-    </table>
-    <br>
-    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
-  </div>
-
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
@@ -182,7 +164,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           }
           ?>
 
-        </table>
+        </table><br>
+        <button class="w3-button w3-dark-grey">More Payments  <i class="fa fa-arrow-right"></i></button>
       </div>
     </div>
   </div>
