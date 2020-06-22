@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Dashboard</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -140,11 +140,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <h5>Vacant Houses</h5>
         <table class="w3-table w3-striped w3-white">
           <?php
-          $query= "SELECT * FROM houses WHERE status='Vacant'";
+          $query= "SELECT * FROM houses WHERE status='Vacant' limit 5";
           $result=mysqli_query($con, $query);
           while ($row = mysqli_fetch_array($result)){
             echo '<tr>
-              <td>'.$row["house_number"].'</td>
+              <td> <i class="fa fa-home w3-text-blue w3-large"></i>'.$row["house_number"].'</td>
             </tr>';
           }
           ?>
@@ -154,11 +154,11 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <h5>Recent Payments</h5>
         <table class="w3-table w3-striped w3-white">
           <?php
-          $query= "select * from payments order by id desc";
+          $query= "SELECT * from payments order by id desc limit 5";
           $result=mysqli_query($con, $query);
           while ($row = mysqli_fetch_array($result)){
             echo '<tr>
-              <td>'.$row["house"].'</td>
+              <td><i class="fa fa-home w3-text-blue w3-large"></i> '.$row["house"].'</td>
               <td>'.$row["balance"].' <i class="fa fa-credit-card w3-text-green w3-large"></i></td>
             </tr>';
           }
