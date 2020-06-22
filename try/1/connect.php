@@ -14,7 +14,7 @@ class crud
 
   public function readRows()
   {
-    
+
     $query= "select * from houses";
     $result=mysqli_query($con, $query);
     $num_rows = mysqli_num_rows($results);
@@ -23,10 +23,10 @@ class crud
   }
 }
 
-$readRows = new crud();
-$readRows->readRows();
-echo $readRows->$numRowsHouses;
-
+$sql = 'select * from houses';
+$result = mysqli_query($con, $sql);
+$num_rows = mysqli_num_rows($result);
+echo $num_rows;
 
 
 
