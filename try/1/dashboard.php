@@ -11,6 +11,10 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 <body class="w3-light-grey">
 
+  <?php
+  require '../../database/db.php';
+   ?>
+
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
@@ -67,7 +71,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-blue w3-padding-16">
         <div class="w3-left"><i class="fa fa-building w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>52</h3>
+          <h3>
+          <?php
+          $sql = 'select * from houses';
+          $result = mysqli_query($con, $sql);
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+           ?>
+          </h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Houses</h4>
@@ -77,7 +88,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-container w3-green w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>99</h3>
+          <h3><?php
+          $sql = 'select * from tenants';
+          $result = mysqli_query($con, $sql);
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+           ?></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Tenants</h4>
@@ -85,24 +101,55 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-orange w3-padding-16">
-        <div class="w3-left"><i class="fa fa-credit-card w3-xxxlarge"></i></div>
+        <div class="w3-left"><i class="fa fa-credit-card w3-text-white w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>23</h3>
+          <h3 class="w3-text-white"><?php
+          $sql = 'select * from tenants';
+          $result = mysqli_query($con, $sql);
+          $num_rowsTenants = mysqli_num_rows($result);
+          $sql = 'select * from payments';
+          $result = mysqli_query($con, $sql);
+          $num_rowsPayments = mysqli_num_rows($result);
+          echo $num_rowsTenants - $num_rowsPayments
+           ?></h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Invoices</h4>
+        <h4 class="w3-text-white">Invoices</h4>
       </div>
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-red w3-text-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>50</h3>
+          <h3><?php
+          $sql = 'select * from payments';
+          $result = mysqli_query($con, $sql);
+          $num_rows = mysqli_num_rows($result);
+          echo $num_rows;
+           ?></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Payments</h4>
       </div>
     </div>
+  </div>
+
+  <div class="w3-container">
+    <h5>Recent Payments</h5>
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <?php
+      $query= "select * from payments order by id desc";
+      $result=mysqli_query($con, $query);
+      while ($row = mysqli_fetch_array($result)){
+        echo '<tr>
+          <td>'.$row["house"].'</td>
+          <td>'.$row["balance"].'</td>
+        </tr>';
+      }
+      ?>
+    </table>
+    <br>
+    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
   </div>
 
   <div class="w3-panel">
@@ -173,7 +220,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <hr>
 
-  <div class="w3-container">
+  <!-- <div class="w3-container">
     <h5>Countries</h5>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
@@ -202,7 +249,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       </tr>
     </table><br>
     <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
-  </div>
+  </div> -->
   <hr>
   <div class="w3-container">
     <h5>Recent Users</h5>
