@@ -155,6 +155,42 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-panel">
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-third">
+        <h5>Vacant Houses</h5>
+        <table class="w3-table w3-striped w3-white">
+          <?php
+          $query= "SELECT * FROM houses WHERE status='Vacant'";
+          $result=mysqli_query($con, $query);
+          while ($row = mysqli_fetch_array($result)){
+            echo '<tr>
+              <td>'.$row["house_number"].'</td>
+            </tr>';
+          }
+          ?>
+        </table>
+      </div>
+      <div class="w3-twothird">
+        <h5>Recent Payments</h5>
+        <table class="w3-table w3-striped w3-white">
+          <?php
+          $query= "select * from payments order by id desc";
+          $result=mysqli_query($con, $query);
+          while ($row = mysqli_fetch_array($result)){
+            echo '<tr>
+              <td>'.$row["house"].'</td>
+              <td>'.$row["balance"].' <i class="fa fa-credit-card w3-text-green w3-large"></i></td>
+            </tr>';
+          }
+          ?>
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
         <h5>Regions</h5>
         <img src="/w3images/region.jpg" style="width:100%" alt="Google Regional Map">
       </div>
@@ -220,7 +256,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <hr>
 
-  <!-- <div class="w3-container">
+  <div class="w3-container">
     <h5>Countries</h5>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
@@ -249,7 +285,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       </tr>
     </table><br>
     <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
-  </div> -->
+  </div>
   <hr>
   <div class="w3-container">
     <h5>Recent Users</h5>
