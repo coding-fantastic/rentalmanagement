@@ -4,59 +4,77 @@
     <meta charset="utf-8">
       <title>Payments Form</title>
 
+      <!-- datatables cdn -->
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="css/w3.css">
+
   </head>
-  <body class="w3-light-grey">
+  <body class="w3-light-gre">
     <!-- start of navbar -->
     <?php
     include 'navbar.php';
       ?>
-    <!-- end of navbar -->
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:100px;margin-top:43px;">
+      <br>
+      <div class="w3-container ">
+          <h3>Payments Page</h3>
+      </div><br>
 
-    <!-- modal div -->
-    <div class="w3-col m3 w3-green">
-      <!-- Trigger/Open the Modal -->
-      <button onclick="document.getElementById('id01').style.display='block'"
-      class="w3-button">Open Modal</button>
 
-      <!-- The Modal -->
-      <div id="id01" class="w3-modal">
-        <div class="w3-modal-content">
-          <div class="w3-container">
-            <span onclick="document.getElementById('id01').style.display='none'"
-            class="w3-button w3-display-topright">&times;</span>
-            <p>Some text in the Modal..</p>
-            <p>Some text in the Modal..</p>
-          </div>
+      <div class="w3-container ">
+        <a href="paymentform.php"><button class="w3-btn w3-green">Add Payment</button></a>
+
+      </div></br>
+
+
+      <!-- display current payments -->
+      <div class="w3-container ">
+        <!--  datatable  start-->
+        <div class="w3-responsive">
+          <table id="paymentsTbl" class="w3-table w3-striped w3-bordered">
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>House number</td>
+                    <td>Year</td>
+                    <td>Month</td>
+                    <td>Expected amount</td>
+                    <td>Paid amount</td>
+                    <td>Comments</td>
+                  </tr>
+                </thead>
+                <?php
+                $query= "select * from payments order by id desc";
+                $result=mysqli_query($con, $query);
+                while ($row = mysqli_fetch_array($result)){
+                  echo '<tr>
+                            <td>'.$row["id"].'</td>
+                            <td>'.$row["house_number"].'</td>
+                            <td>'.$row["year"].'</td>
+                            <td>'.$row["month"].'</td>
+                            <td>'.$row["expected_amount"].'</td>
+                            <td>'.$row["paid_amount"].'</td>
+                            <td>'.$row["comments"].'</td>
+                        </tr>';
+                }
+                 ?>
+          </table>
         </div>
-      </div>
 
-
-    </div>
-
-    <!-- display current payments -->
-    <div class="w3-panel">
-
+      <!-- datatable end -->
+      </div><br>
 
     </div>
 
-    <div class="w3-container">
-      <div class="w3-row">
-        <!-- order of screen size in w3 small screen , medium and large  -->
-        <div class="w3-col m10 l5 w3-green">
-          <p>This is an outer div</p>
-          <div class="w3-col m6 l4 w3-blue">
-            <p>this is an inner div</p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <script type="text/javascript">
-
+    <script>
+      $(document).ready(function() {
+        $('#paymentsTbl').DataTable();
+      } );
 
     </script>
 
