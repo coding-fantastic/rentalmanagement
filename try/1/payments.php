@@ -41,7 +41,7 @@
 
     <div class="w3-container">
       <div class="w3-row">
-        <!-- 12 columns on a small screen 10 columns on medium and 5cols on large -->
+        <!-- order of screen size in w3 small screen , medium and large  -->
         <div class="w3-col m10 l5 w3-green">
           <p>This is an outer div</p>
           <div class="w3-col m6 l4 w3-blue">
