@@ -26,13 +26,16 @@ include 'navbar.php';
            // if condition will check for balance
            if ($row["paid_amount"] < $row["expected_amount"]) {
              echo '<tr>
-                     <td>'.$row["house_number"].'</td>
-                    <td>'.$row["expected_amount"] .'</td>
-                     <td>'.$row["expected_amount"].'</td>
+                     <td>'.$row["house_number"].'</td>' ;
+                     echo '<td>';
+                     echo  $row["expected_amount"]- $row["paid_amount"] ;
+                     echo '</td>';
+                     echo  '<td>'.$row["expected_amount"].'</td>
                      <td>'.$row["paid_amount"].'</td>
                      <td>'.$row["year"].'</td>
                      <td>'.$row["month"].'</td>
-                   </tr>';
+
+                    </tr>';
            }
 
          }
