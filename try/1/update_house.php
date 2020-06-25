@@ -20,9 +20,13 @@
      <div class="w3-main" style="margin-left:100px;margin-top:43px;">
        <br>
        <div class="w3-container ">
-         <form class="w3-container w3-card-4" action="" method="post">
+         <form class="w3-container w3-card-4" action="update_house_connect.php" method="post">
           <h2 class="w3-text-blue">Update a house</h2>
           <p>You can update a house on the form below.</p>
+          <p>
+          <label class="w3-text-blue"><b>ID</b></label>
+          <small class="w3-text-blue">This is a read only field</small>
+          <input class="w3-input w3-border" name="id" type="text"  value="<?php echo $id ?>" readonly></p>
           <p>
           <label class="w3-text-blue"><b>House number</b></label>
           <input class="w3-input w3-border" name="housenumber" type="text" value="<?php echo $house_number ?>"></p>
