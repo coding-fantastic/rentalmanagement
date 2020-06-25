@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-      <title>Payments Form</title>
 
-      <!-- datatables cdn -->
-      <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
-      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-      <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="css/w3.css">
-
-  </head>
-  <body class="w3-light-gre">
     <!-- start of navbar -->
     <?php
     include 'navbar.php';
@@ -42,21 +27,26 @@
                     <td>ID</td>
                     <td>House number</td>
                     <td>Features</td>
-
                     <td>Status</td>
+                    <td>Actions</td>
                     </tr>
                 </thead>
                 <?php
-                $query= "select * from houses order by id desc";
+                $query= "select * from houses ";
                 $result=mysqli_query($con, $query);
                 while ($row = mysqli_fetch_array($result)){
                   echo '<tr>
                           <td>'.$row["id"].'</td>
                           <td>'.$row["house_number"].'</td>
                           <td>'.$row["features"].'</td>
-                          
-                          <td>'.$row["status"].'</td>
-                        </tr>';
+                          <td>'.$row["status"].'</td>';
+
+                          echo "<td>";
+                          echo ' <a href="#"
+                           class=""><button class="w3-btn w3-blue">edit</button></a>&nbsp';
+                          echo "<a href='#' class=''><button class='w3-btn w3-red'>delete</button></a>";
+                          echo "</td>";
+                        echo '</tr>';
                 }
                  ?>
           </table>
