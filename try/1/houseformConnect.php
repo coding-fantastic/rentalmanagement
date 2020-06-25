@@ -6,11 +6,11 @@ if (isset($_REQUEST['housenumber'])){
   // uppercase first character of each word in a string
   $housenumber = ucwords($housenumber);
   $features = ucwords(trim($_REQUEST['features']));
-  $rent = ucwords(trim($_REQUEST['rent']));
+
   $status = ucwords(trim($_REQUEST['status']));
 
 
-  $query = "INSERT  into `houses` (house_number, features, rent, status ) VALUES ('$housenumber','$features','$rent','$status')";
+  $query = "INSERT  into `houses` (house_number, features, status ) VALUES ('$housenumber','$features','$status')";
   $result = mysqli_query($con, $query);
 
   if($result){

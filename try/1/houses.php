@@ -42,7 +42,7 @@
                     <td>ID</td>
                     <td>House number</td>
                     <td>Features</td>
-                    <td>Rent</td>
+
                     <td>Status</td>
                     </tr>
                 </thead>
@@ -54,7 +54,7 @@
                           <td>'.$row["id"].'</td>
                           <td>'.$row["house_number"].'</td>
                           <td>'.$row["features"].'</td>
-                          <td>'.$row["rent"].'</td>
+                          
                           <td>'.$row["status"].'</td>
                         </tr>';
                 }

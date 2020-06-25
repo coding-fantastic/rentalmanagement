@@ -21,9 +21,6 @@
           <label class="w3-text-blue"><b>Features</b></label>
           <textarea class="w3-input w3-border" name="features" placeholder="Features" rows="3" cols="80" ></textarea></p>
           <p>
-          <label class="w3-text-blue"><b>Rent</b></label>
-          <input class="w3-input w3-border" name="rent" type="text" placeholder="Expected Rent" ></p>
-          <p>
           <label class="w3-text-blue"><b>Status</b></label>
           <select class="w3-input w3-border" name="status" >
             <option value="Vacant">Vacant</option>
