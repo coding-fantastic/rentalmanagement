@@ -4,23 +4,22 @@
     include 'navbar.php';
       ?>
 
-      <?php
-        if (isset($_SESSION['message'])) {
-          ?>
-          <div class="w3-panel w3-pale- <?php $_SESSION['msg_typ']  ?> w3-border">
-            <?php
-              echo $_SESSION['message'];
-              unset($_SESSION['message']);
-
-             ?>
-          </div>
-        <?php } ?>
-
 
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-main" style="margin-left:100px;margin-top:43px;">
       <br>
+        <?php
+          if (isset($_REQUEST['id'])) {
+            if ($_REQUEST['id'] == 1) {
+
+            ?>
+            <div class="w3-panel w3-pale-green w3-border">
+              <p>Update success.</p>
+            </div>
+          <?php
+        }
+      }?>
       <div class="w3-container ">
           <h3>Houses Page</h3>
       </div><br>
