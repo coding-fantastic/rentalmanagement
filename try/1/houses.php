@@ -36,16 +36,29 @@
                 $result=mysqli_query($con, $query);
 
                 // to check an array use this
-                pre_r($result);
+                // pre_r($result);
+                // eg pre_r(mysqli_fetch_array($result));
                 // a function to print an array in a readable format
-                function pre_r($array)
-                {
-                  echo "<pre>";
-                  print_r($array);
-                  echo "</pre>";
-                }
+                // function pre_r($array)
+                // {
+                //   echo "<pre>";
+                //   print_r($array);
+                //   echo "</pre>";
+                // }
                 while ($row = mysqli_fetch_array($result)){
-                  echo '<tr>
+                ?>
+                <tr>
+                  <td><?php echo $row["id"]; ?></td>
+                  <td><?php echo $row["house_number"]; ?></td>
+                  <td><?php echo $row["features"]; ?></td>
+                  <td><?php echo $row["status"]; ?></td>
+                  <td>
+                    <a href="update_house.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-blue">Edit</a>
+                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-red">Delete</a>
+                  </td>
+                </tr>
+              <?php } ?>
+                  <!-- echo '<tr>
                           <td>'.$row["id"].'</td>
                           <td>'.$row["house_number"].'</td>
                           <td>'.$row["features"].'</td>
@@ -56,9 +69,8 @@
                            class=""><button class="w3-btn w3-blue">edit</button></a>&nbsp';
                           echo "<a href='#' class=''><button class='w3-btn w3-red'>delete</button></a>";
                           echo "</td>";
-                        echo '</tr>';
-                }
-                 ?>
+                        echo '</tr>'; -->
+
           </table>
         </div>
 
