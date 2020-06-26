@@ -34,6 +34,16 @@
                 <?php
                 $query= "select * from houses ";
                 $result=mysqli_query($con, $query);
+
+                // to check an array use this
+                pre_r($result);
+                // a function to print an array in a readable format
+                function pre_r($array)
+                {
+                  echo "<pre>";
+                  print_r($array);
+                  echo "</pre>";
+                }
                 while ($row = mysqli_fetch_array($result)){
                   echo '<tr>
                           <td>'.$row["id"].'</td>
