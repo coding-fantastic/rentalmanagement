@@ -4,21 +4,7 @@
     include 'navbar.php';
       ?>
 
-      <!-- this php section checks if update was successfully updated -->
-      <?php
-        if (isset($_REQUEST['id'])) {
-          if ($_REQUEST['id'] == 1) {
-
-          ?>
-          <br>
-          <div class="w3-panel w3-pale-green w3-border">
-            <p> Record updated successfully.</p>
-          </div>
-        <?php
-      }
-    }?>
-
-
+    
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-main" style="margin-left:100px;margin-top:43px;">
