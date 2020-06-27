@@ -10,8 +10,8 @@ if (isset($_REQUEST['del_id'])){
     <p> Record deleted successfully.</p>
   </div>
   <?php
-  sleep(10);
-  header ("Location: houses.php");
+  // sleep(10);
+  // header ("Location: houses.php");
 
 
 }else {
