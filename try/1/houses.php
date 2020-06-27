@@ -12,11 +12,13 @@
           ?>
           <br>
           <div class="w3-panel w3-pale-green w3-border">
-            <p> Record updated </p>
+            <p> Record updated successfully.</p>
           </div>
         <?php
       }
     }?>
+
+
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-main" style="margin-left:100px;margin-top:43px;">
@@ -50,7 +52,7 @@
                     </tr>
                 </thead>
                 <?php
-                $query= "select * from houses ";
+                $query= "SELECT * from houses order by id desc ";
                 $result=mysqli_query($con, $query);
 
                 // to check an array use this
@@ -72,8 +74,8 @@
                   <td><?php echo $row["status"]; ?></td>
                   <td>
                     <a href="update_house.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-blue">Edit</a>
-                    <a href="delete.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-red">Delete</a>
-                    <input type="button"  onclick="deleteme(<?php echo $row['id']; ?>)" name="Delete" value="Delete">
+                    <!-- <a href="#" class="w3-btn w3-red">Delete</a> -->
+                    <input type="button" class="w3-btn w3-red"  onclick="deleteme(<?php echo $row['id'] ?>)" name="Delete" value="Delete">
                     <!-- ##################################################################################################################### -->
 
                     <!-- DELETE POP UP FORM (BOOTSTRAP MODAL) Start -->
@@ -172,7 +174,7 @@
     <!-- JavaScript function for deleting data -->
     <script type="text/javascript">
       function deleteme(delid){
-        if(confirm("Do you want to Delete  !"+delid)){
+        if(confirm("Press OK if you want to delete this record!")){
           window.location.href='delete.php?del_id='+delid;
 
 
