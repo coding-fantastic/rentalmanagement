@@ -73,7 +73,49 @@
                   <td>
                     <a href="update_house.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-blue">Edit</a>
                     <a href="delete.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-red">Delete</a>
-                    <!-- <a href="#" class="w3-btn w3-red" onclick="document.getElementById('id01').style.display='block'">Delete</a> -->
+                    <input type="button"  onclick="deleteme(<?php echo $row['id']; ?>)" name="Delete" value="Delete">
+                    <!-- ##################################################################################################################### -->
+
+                    <!-- DELETE POP UP FORM (BOOTSTRAP MODAL) Start -->
+
+                    <!-- <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" >Delete this record</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                              <span aria-hidden="true">$times;</span>
+                            </button>
+
+                          </div>
+
+                          <form class="" action="" method="post">
+                            <div class="modal-body">
+                              <input type="hidden" name="delete_id" id="delete_id" value="">
+                              <h4>Do you want to Delete this data ?? </h4>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal" name="button">NO</button>
+                              <button type="submit" name="deletedata" class="btn btn-primary">Yes !! Delete it.</button>
+
+                            </div>
+
+                          </form>
+
+                        </div>
+
+                      </div>
+
+                    </div> -->
+
+                    <!-- DELETE POP UP FORM (BOOTSTRAP MODAL) End -->
+
+                    <!-- ##################################################################################################################### -->
+
+
+
+
                   </td>
                 </tr>
 
@@ -127,9 +169,26 @@
 
     </script>
 
+    <!-- JavaScript function for deleting data -->
+    <script type="text/javascript">
+      function deleteme(delid){
+        if(confirm("Do you want to Delete  !"+delid)){
+          window.location.href='delete.php?del_id='+delid;
+
+
+          return true;
+        }
+      }
+
+    </script>
+
     <!-- <script>
       $(document).ready(function() {
-        $('#delmodal').modal('show');
+        $('#deletebtn').on('click', function(){
+          $('#deletemodal').modal('show');
+
+        });
+
       });
 
     </script> -->
