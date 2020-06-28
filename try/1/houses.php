@@ -4,7 +4,7 @@
     include 'navbar.php';
       ?>
 
-    
+
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-main" style="margin-left:100px;margin-top:43px;">
@@ -33,7 +33,7 @@
                     <td>ID</td>
                     <td>House number</td>
                     <td>Features</td>
-                    <td>Status</td>
+                    
                     <td>Actions</td>
                     </tr>
                 </thead>
@@ -57,7 +57,7 @@
                   <td><?php echo $row["id"]; ?></td>
                   <td><?php echo $row["house_number"]; ?></td>
                   <td><?php echo $row["features"]; ?></td>
-                  <td><?php echo $row["status"]; ?></td>
+
                   <td>
                     <a href="update_house.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-blue">Edit</a>
                     <!-- <a href="#" class="w3-btn w3-red">Delete</a> -->
