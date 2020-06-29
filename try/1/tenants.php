@@ -4,7 +4,7 @@
     include 'navbar.php';
       ?>
     <!-- !PAGE CONTENT! -->
-    <div class="w3-main" style="margin-left:100px;margin-top:43px;">
+    <div class="w3-main" style="margin-left:50px;margin-top:43px;">
       <br>
       <div class="w3-container ">
           <h3>Tenants Page</h3>
