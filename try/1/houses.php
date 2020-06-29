@@ -30,10 +30,10 @@
           <table id="paymentsTbl" class="w3-table w3-striped w3-bordered">
                 <thead>
                   <tr>
-                    <td>ID</td>
+
                     <td>House number</td>
                     <td>Features</td>
-                    
+
                     <td>Actions</td>
                     </tr>
                 </thead>
@@ -54,7 +54,7 @@
                 while ($row = mysqli_fetch_array($result)){
                 ?>
                 <tr>
-                  <td><?php echo $row["id"]; ?></td>
+                  
                   <td><?php echo $row["house_number"]; ?></td>
                   <td><?php echo $row["features"]; ?></td>
 
