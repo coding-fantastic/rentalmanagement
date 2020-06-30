@@ -10,6 +10,7 @@
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 <body class="w3-light-grey">
+  
 
   <?php
   require '../../database/db.php';
@@ -30,7 +31,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <img src="images/img_avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
       </div>
       <div class="w3-col s8 w3-bar">
-        <span>Welcome, <strong>Mike</strong></span><br>
+        <span>Welcome, <strong>Admin</strong></span><br>
         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
@@ -177,7 +178,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
     <hr>
 
-    <div class="w3-panel">
+    <!-- <div class="w3-panel">
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-third">
           <h5>Regions</h5>
@@ -340,12 +341,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <p>Interests</p>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- Footer -->
     <footer class="w3-container w3-padding-16 w3-light-grey">
       <h4>FOOTER</h4>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <p>Powered by <a href="#" target="_blank">Alex</a></p>
     </footer>
 
     <!-- End page content -->
