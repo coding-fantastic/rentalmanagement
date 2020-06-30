@@ -54,10 +54,8 @@
                 while ($row = mysqli_fetch_array($result)){
                 ?>
                 <tr>
-                  
                   <td><?php echo $row["house_number"]; ?></td>
                   <td><?php echo $row["features"]; ?></td>
-
                   <td>
                     <a href="update_house.php?id=<?php echo $row['id']; ?>" class="w3-btn w3-blue">Edit</a>
                     <!-- <a href="#" class="w3-btn w3-red">Delete</a> -->
