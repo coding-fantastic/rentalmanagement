@@ -69,7 +69,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </header>
 
     <div class="w3-row-padding w3-margin-bottom">
-      <div class="w3-quarter">
+      <div class="w3-quarter w3-padding">
         <div class="w3-container w3-blue w3-padding-16">
           <div class="w3-left"><i class="fa fa-building w3-xxxlarge"></i></div>
           <div class="w3-right">
@@ -86,7 +86,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <h4>Houses</h4>
         </div>
       </div>
-      <div class="w3-quarter">
+      <div class="w3-quarter w3-padding">
         <div class="w3-container w3-green w3-padding-16">
           <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
           <div class="w3-right">
@@ -101,7 +101,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <h4>Tenants</h4>
         </div>
       </div>
-      <div class="w3-quarter">
+      <div class="w3-quarter w3-padding">
         <div class="w3-container w3-orange w3-padding-16">
           <div class="w3-left"><i class="fa fa-credit-card w3-text-white w3-xxxlarge"></i></div>
           <div class="w3-right">
@@ -124,7 +124,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <h4 class="w3-text-white">Invoices</h4>
         </div>
       </div>
-      <div class="w3-quarter">
+      <div class="w3-quarter w3-padding">
         <div class="w3-container w3-red w3-text-white w3-padding-16">
           <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
           <div class="w3-right">
@@ -139,43 +139,103 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <h4>Payments</h4>
         </div>
       </div>
+
+      <div class="w3-quarter w3-padding">
+        <div class="w3-container w3-green w3-padding-16">
+          <div class="w3-left"><i class="fa fa-building w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>
+            <?php
+            $paid_amounts_total = 0 ;
+            $month = date("F");
+            $sql = "SELECT * from payments WHERE month='$month'";
+            $result = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_array($result)){
+              $paid_amounts_total = $row['paid_amount'] + $paid_amounts_total;
+            }
+            echo $paid_amounts_total;
+             ?>
+            </h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Total amount paid <?php echo date("F"); ?></h4>
+        </div>
+      </div>
+
+      <div class="w3-quarter w3-padding">
+        <div class="w3-container w3-green w3-padding-16">
+          <div class="w3-left"><i class="fa fa-building w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>
+            <?php
+            $paid_amounts_total = 0 ;
+            $month = date("F");
+            $sql = "SELECT * from payments WHERE month='$month'";
+            $result = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_array($result)){
+              $paid_amounts_total = $row['paid_amount'] + $paid_amounts_total;
+            }
+            echo $paid_amounts_total;
+             ?>
+            </h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4> <?php echo date("F"); ?> Balances</h4>
+        </div>
+      </div>
     </div>
+
 
     <div class="w3-panel">
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-third">
-          <h5>Payments not yet</h5>
-          <table class="w3-table w3-striped w3-border w3-dark">
-            <?php
-            $query= "SELECT * FROM payments WHERE expected_amount > paid_amount  ";
-            $result=mysqli_query($con, $query);
-            while ($row = mysqli_fetch_array($result)){
-              // if ($row['expected_amount'] >  $row['paid_amount']) {
+          <div class="w3-card-4 w3-padding " >
+            <header class="w3-container w3-pale-red">
+              <h5>Payments not yet</h5>
+            </header>
 
-              ?>
-              <tr>
-                <td> <i class="fa fa-home w3-text-blue w3-large"></i> <?php echo $row["house_number"]; ?></td>
-              </tr>
-          <?php } ?>
+            <table class="w3-table w3-striped w3-border w3-white">
+              <?php
+              $query= "SELECT * FROM payments WHERE expected_amount > paid_amount  ";
+              $result=mysqli_query($con, $query);
+              while ($row = mysqli_fetch_array($result)){
+                // if ($row['expected_amount'] >  $row['paid_amount']) {
 
-          </table>
+                ?>
+                <tr>
+                  <td> <i class="fa fa-home w3-text-blue w3-large"></i> <?php echo $row["house_number"]; ?></td>
+                </tr>
+            <?php } ?>
+
+            </table>
+
+          </div>
+
+
         </div>
-        <div class="w3-twothird">
-          <h5>Recent Payments</h5>
-          <table class="w3-table w3-striped w3-white">
-            <?php
-            $query= "SELECT * from payments order by id desc limit 5";
-            $result=mysqli_query($con, $query);
-            while ($row = mysqli_fetch_array($result)){
-              echo '<tr>
-                <td><i class="fa fa-home w3-text-blue w3-large"></i> '.$row["house_number"].'</td>
-                <td>'.$row["paid_amount"].' <i class="fa fa-credit-card w3-text-green w3-large"></i></td>
-              </tr>';
-            }
-            ?>
 
-          </table><br>
-          <a href="payments.php"<button class="w3-button w3-dark-grey">More Payments  <i class="fa fa-arrow-right"></i></button></a>
+        <div class="w3-twothird">
+          <div class="w3-card-4 w3-padding">
+            <header class="w3-container w3-pale-green">
+              <h5>Recent Payments</h5>
+            </header>
+
+            <table class="w3-table w3-striped w3-border w3-white">
+              <?php
+              $query= "SELECT * from payments order by id desc limit 5";
+              $result=mysqli_query($con, $query);
+              while ($row = mysqli_fetch_array($result)){
+                echo '<tr>
+                  <td><i class="fa fa-home w3-text-blue w3-large"></i> '.$row["house_number"].'</td>
+                  <td>'.$row["paid_amount"].' <i class="fa fa-credit-card w3-text-green w3-large"></i></td>
+                </tr>';
+              }
+              ?>
+
+            </table><br>
+            <a href="payments.php"<button class="w3-button w3-dark-grey">More Payments  <i class="fa fa-arrow-right"></i></button></a>
+          </div>
+
         </div>
       </div>
     </div>
