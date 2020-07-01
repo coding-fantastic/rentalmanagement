@@ -147,16 +147,16 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
           <h5>Payments not yet</h5>
           <table class="w3-table w3-striped w3-border w3-dark">
             <?php
-            $query= "SELECT * FROM payments  limit 5";
+            $query= "SELECT * FROM payments WHERE expected_amount > paid_amount  ";
             $result=mysqli_query($con, $query);
             while ($row = mysqli_fetch_array($result)){
-              if ($row['expected_amount'] >  $row['paid_amount']) {
+              // if ($row['expected_amount'] >  $row['paid_amount']) {
 
               ?>
               <tr>
                 <td> <i class="fa fa-home w3-text-blue w3-large"></i> <?php echo $row["house_number"]; ?></td>
               </tr>
-          <?php }} ?>
+          <?php } ?>
 
           </table>
         </div>
