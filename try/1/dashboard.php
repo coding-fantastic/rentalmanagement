@@ -10,7 +10,7 @@
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 <body class="w3-light-grey">
-  
+
 
   <?php
   require '../../database/db.php';
@@ -144,17 +144,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div class="w3-panel">
       <div class="w3-row-padding" style="margin:0 -16px">
         <div class="w3-third">
-          <h5>Vacant Houses</h5>
+          <h5>Payments not yet</h5>
           <table class="w3-table w3-striped w3-border w3-dark">
             <?php
-            $query= "SELECT * FROM houses WHERE status='Vacant' limit 5";
+            $query= "SELECT * FROM payments  limit 5";
             $result=mysqli_query($con, $query);
             while ($row = mysqli_fetch_array($result)){
-              echo '<tr>
-                <td> <i class="fa fa-home w3-text-blue w3-large"></i>'.$row["house_number"].'</td>
-              </tr>';
-            }
-            ?>
+              if ($row['expected_amount'] >  $row['paid_amount']) {
+
+              ?>
+              <tr>
+                <td> <i class="fa fa-home w3-text-blue w3-large"></i> <?php echo $row["house_number"]; ?></td>
+              </tr>
+          <?php }} ?>
+
           </table>
         </div>
         <div class="w3-twothird">
