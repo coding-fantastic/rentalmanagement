@@ -147,7 +147,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <h3>
             <?php
             $paid_amounts_total = 0 ;
-            $month = date("F");
+            $month = date("F", strtotime("-1 month"));
             $sql = "SELECT * from payments WHERE month='$month'";
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)){
@@ -158,7 +158,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </h3>
           </div>
           <div class="w3-clear"></div>
-          <h4>  <?php echo date("F"); ?> amount paid</h4>
+          <h4>  <?php echo date("F", strtotime("-1 month")); ?> amount paid</h4>
         </div>
       </div>
 
@@ -170,19 +170,19 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             <?php
             $diff_btwn_expected_paid_amount = 0 ;
             $sum_of_balance = 0;
-            $month = date("F");
+            $month = date("F",strtotime("-1 month"));
             $sql = "SELECT * from payments WHERE month='$month'";
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)){
               $diff_btwn_expected_paid_amount = $row['expected_amount'] - $row['paid_amount'];
               $sum_of_balance = $diff_btwn_expected_paid_amount + $sum_of_balance;
             }
-            echo $sum_of_balance;
+            echo "-". $sum_of_balance;
              ?>
             </h3>
           </div>
           <div class="w3-clear"></div>
-          <h4> <?php echo date("F"); ?> Balances</h4>
+          <h4> <?php echo date("F", strtotime("-1 month")); ?> Balances</h4>
         </div>
       </div>
     </div>
@@ -208,7 +208,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                 ?>
                 <tr>
                   <td> <i class="fa fa-home w3-text-blue w3-large"></i> <?php echo $row["house_number"]; ?></td>
-                  <td> <i class="fa fa-credit-card w3-text-green w3-large"></i> <?php echo $diff_btwn_expected_paid_amount; ?></td>
+                  <td> <i class="fa fa-credit-card w3-text-green w3-large"></i> - <?php echo $diff_btwn_expected_paid_amount; ?></td>
                 </tr>
             <?php } ?>
 
