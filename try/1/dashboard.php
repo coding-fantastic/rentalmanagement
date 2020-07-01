@@ -158,24 +158,26 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </h3>
           </div>
           <div class="w3-clear"></div>
-          <h4>Total amount paid <?php echo date("F"); ?></h4>
+          <h4>  <?php echo date("F"); ?> amount paid</h4>
         </div>
       </div>
 
       <div class="w3-quarter w3-padding">
-        <div class="w3-container w3-green w3-padding-16">
+        <div class="w3-container w3-red w3-padding-16">
           <div class="w3-left"><i class="fa fa-building w3-xxxlarge"></i></div>
           <div class="w3-right">
             <h3>
             <?php
-            $paid_amounts_total = 0 ;
+            $diff_btwn_expected_paid_amount = 0 ;
+            $sum_of_balance = 0;
             $month = date("F");
             $sql = "SELECT * from payments WHERE month='$month'";
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)){
-              $paid_amounts_total = $row['paid_amount'] + $paid_amounts_total;
+              $diff_btwn_expected_paid_amount = $row['expected_amount'] - $row['paid_amount'];
+              $sum_of_balance = $diff_btwn_expected_paid_amount + $sum_of_balance;
             }
-            echo $paid_amounts_total;
+            echo $sum_of_balance;
              ?>
             </h3>
           </div>
@@ -196,14 +198,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
             <table class="w3-table w3-striped w3-border w3-white">
               <?php
+              // this variable will hold value of the difference btwn expected_amount and paid_amount = balances
+              $diff_btwn_expected_paid_amount = 0;
               $query= "SELECT * FROM payments WHERE expected_amount > paid_amount  ";
               $result=mysqli_query($con, $query);
               while ($row = mysqli_fetch_array($result)){
                 // if ($row['expected_amount'] >  $row['paid_amount']) {
-
+                $diff_btwn_expected_paid_amount = $row['expected_amount'] - $row['paid_amount'];
                 ?>
                 <tr>
                   <td> <i class="fa fa-home w3-text-blue w3-large"></i> <?php echo $row["house_number"]; ?></td>
+                  <td> <i class="fa fa-credit-card w3-text-green w3-large"></i> <?php echo $diff_btwn_expected_paid_amount; ?></td>
                 </tr>
             <?php } ?>
 
@@ -225,12 +230,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
               $query= "SELECT * from payments order by id desc limit 5";
               $result=mysqli_query($con, $query);
               while ($row = mysqli_fetch_array($result)){
-                echo '<tr>
-                  <td><i class="fa fa-home w3-text-blue w3-large"></i> '.$row["house_number"].'</td>
-                  <td>'.$row["paid_amount"].' <i class="fa fa-credit-card w3-text-green w3-large"></i></td>
-                </tr>';
-              }
-              ?>
+                ?>
+                <tr>
+                  <td> <i class="fa fa-home w3-text-blue w3-large"></i> <?php $row["house_number"]; ?></td>
+                  <td> <i class="fa fa-credit-card w3-text-green w3-large"></i> <?php echo $row["paid_amount"]; ?></td>
+                </tr>
+              <?php }  ?>
 
             </table><br>
             <a href="payments.php"<button class="w3-button w3-dark-grey">More Payments  <i class="fa fa-arrow-right"></i></button></a>
