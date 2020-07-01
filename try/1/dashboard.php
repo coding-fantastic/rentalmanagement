@@ -142,7 +142,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
       <div class="w3-quarter w3-padding">
         <div class="w3-container w3-green w3-padding-16">
-          <div class="w3-left"><i class="fa fa-building w3-xxxlarge"></i></div>
+          <div class="w3-left"><i class="fa fa-briefcase w3-xxxlarge"></i></div>
           <div class="w3-right">
             <h3>
             <?php
@@ -164,7 +164,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
       <div class="w3-quarter w3-padding">
         <div class="w3-container w3-red w3-padding-16">
-          <div class="w3-left"><i class="fa fa-building w3-xxxlarge"></i></div>
+          <div class="w3-left"><i class="fa fa-money w3-xxxlarge"></i></div>
           <div class="w3-right">
             <h3>
             <?php
