@@ -1,4 +1,14 @@
 <?php
+// Initialize the session
+session_start();
+
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(!isset($_SESSION["username"]) ){
+    header("location: login.php");
+
+}
+?>
+<?php
 require '../../database/db.php';
  ?>
 
@@ -32,7 +42,10 @@ require '../../database/db.php';
 
 <!-- Top container -->
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <a href="http://localhost/websites/rentalms/try/1/dashboard.php"><button class="w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" ><i class="fa fa-bars"></i>  Home</button></a>
+  <a href="dashboard.php"><button class="w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" ><i class="fa fa-bars"></i>  Home</button></a>
 
+
+  <a href="logout.php"><span class="w3-bar-item w3-right">Logout <i class="fa fa-sign-out"></i></span></a>
   <span class="w3-bar-item w3-right">Logo</span>
+
 </div><br>
