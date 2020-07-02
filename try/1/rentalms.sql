@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 30, 2020 at 09:15 PM
+-- Generation Time: Jul 02, 2020 at 10:31 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -32,7 +32,7 @@ CREATE TABLE `houses` (
   `id` int(11) NOT NULL,
   `house_number` varchar(20) NOT NULL,
   `features` varchar(250) NOT NULL,
-  `status` varchar(20) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Vacant',
   `datentime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -53,7 +53,11 @@ INSERT INTO `houses` (`id`, `house_number`, `features`, `status`, `datentime`) V
 (10, 'A7', '1 Bedroom , 1 Kitchen', 'Occupied', '2020-06-26 20:55:51'),
 (11, 'A8', '1 Bedroom , 1 Kitchen', 'Occupied', '2020-06-27 10:55:36'),
 (15, 'A9', '2 Bedroom , 1 Kitchen, 1 Bathroom', 'Vacant', '2020-06-27 12:00:06'),
-(17, 'A10', '1 Bedroom , 1 Bathroom', 'Vacant', '2020-06-27 12:06:56');
+(17, 'A10', '1 Bedroom , 1 Bathroom', 'Vacant', '2020-06-27 12:06:56'),
+(18, 'B4', '4 Bedroom , 1 Kitchen , 3 Bathrooms And  Parking Space', 'Vacant', '2020-07-02 07:40:07'),
+(19, 'B5', '4 Bedroom , 1 Kitchen , 3 Bathrooms And  Parking Space', 'Vacant', '2020-07-02 07:41:28'),
+(20, 'B6', '4 Bedroom , 1 Kitchen , 3 Bathrooms And  Parking Space', 'Vacant', '2020-07-02 07:41:57'),
+(21, 'B7', '4 Bedroom , 1 Kitchen , 3 Bathrooms And Parking Space', 'Vacant', '2020-07-02 08:19:17');
 
 -- --------------------------------------------------------
 
@@ -182,7 +186,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `houses`
 --
 ALTER TABLE `houses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `payments`
