@@ -1,3 +1,13 @@
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(!isset($_SESSION["username"]) ){
+    header("location: login.php");
+
+}
+?>
 <!DOCTYPE html>
 <html>
 <title>Dashboard</title>
@@ -20,6 +30,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
     <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
 
+    <a href="logout.php"><span class="w3-bar-item w3-right">Logout <i class="fa fa-sign-out"></i></span></a>
     <span class="w3-bar-item w3-right">Logo</span>
   </div>
 
@@ -31,7 +42,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <img src="images/img_avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
       </div>
       <div class="w3-col s8 w3-bar">
-        <span>Welcome, <strong>Admin</strong></span><br>
+        <span>Welcome, <strong><?php echo $_SESSION["username"]; ?></strong></span><br>
         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
