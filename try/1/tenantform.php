@@ -23,7 +23,7 @@
             <input class="w3-input w3-border" name="national_id" type="text" placeholder="National ID" maxlength="8" ></p>
             <p>
             <label class="w3-text-blue"><b>Mobile number</b></label>
-            <input class="w3-input w3-border" name="mobile_number" type="text" placeholder="mobile number" maxlength="12"></p>
+            <input class="w3-input w3-border" name="mobile_number" type="text" placeholder="mobile number" maxlength="10"></p>
             <p>
             <label class="w3-text-blue"><b>Email</b></label>
             <input class="w3-input w3-border" name="email" type="email" placeholder="Email" ></p>

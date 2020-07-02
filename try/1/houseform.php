@@ -14,13 +14,13 @@
           <p>
           <label class="w3-text-blue"><b>Features</b></label>
           <textarea class="w3-input w3-border" name="features" placeholder="Features" rows="3" cols="80" ></textarea></p>
-          <p>
+          <!-- <p>
           <label class="w3-text-blue"><b>Status</b></label>
           <select class="w3-input w3-border" name="status" >
             <option value="Vacant">Vacant</option>
             <option value="Occupied">Occupied</option>
           </select>
-          </p>
+          </p> -->
           <p>
           <button class="w3-btn w3-blue">Register</button></p>
         </form>

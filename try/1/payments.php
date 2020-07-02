@@ -24,7 +24,7 @@
           <table id="paymentsTbl" class="w3-table w3-striped w3-bordered">
                 <thead>
                   <tr>
-                    <td>ID</td>
+
                     <td>House number</td>
                     <td>Year</td>
                     <td>Month</td>
@@ -38,7 +38,7 @@
                 $result=mysqli_query($con, $query);
                 while ($row = mysqli_fetch_array($result)){
                   echo '<tr>
-                            <td>'.$row["id"].'</td>
+                            
                             <td>'.$row["house_number"].'</td>
                             <td>'.$row["year"].'</td>
                             <td>'.$row["month"].'</td>

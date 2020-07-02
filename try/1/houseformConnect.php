@@ -10,7 +10,7 @@ if (isset($_REQUEST['housenumber'])){
   $status = ucwords(trim($_REQUEST['status']));
 
 
-  $query = "INSERT  into `houses` (house_number, features, status ) VALUES ('$housenumber','$features','$status')";
+  $query = "INSERT  into `houses` (house_number, features ) VALUES ('$housenumber','$features')";
   $result = mysqli_query($con, $query);
 
   if($result){

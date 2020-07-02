@@ -7,7 +7,7 @@ include 'navbar.php';
   <br>
   <div class="w3-container ">
 
-   <p><h3>invoices</h3></p>
+   <p><h3>Invoices</h3></p>
    <table id="paymentsTbl" class="w3-table w3-striped w3-bordered">
          <thead>
            <tr>

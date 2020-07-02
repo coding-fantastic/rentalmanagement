@@ -18,11 +18,13 @@ if (isset($_REQUEST['housenumber'])){
 
 // echo $fullname." ".$gender." ".$national_id." ".$mobile_number." ".$email." ".$registration_date." ".$housenumber." ". $status;
 
+
   $houseExist=0;
 
   $query= "SELECT * from houses order by id desc ";
   $result=mysqli_query($con, $query);
   while ($row = mysqli_fetch_array($result)){
+
     // check if that house exists
     if ($housenumber == $row['house_number'] ) {
       $houseExist = 1;
@@ -48,26 +50,17 @@ if (isset($_REQUEST['housenumber'])){
 
         ?>
        <div class="w3-panel w3-pale-green w3-border">
-         <p> House was vacant and it exists </p>
-         <?php echo "before update house number is " .$housenumber." and house status is ".$house_status; ?>
+         <p> Added tenant successfully. </p>
+
        </div>
        <?php
-       // update status in house table
-       $query = "UPDATE `houses` SET status='Occupied' WHERE id=$housenumber";
-       $result = mysqli_query($con, $query) or die($query);
-
-             
 
 
         if($result){
 
-          ?>
-         <div class="w3-panel w3-pale-green w3-border">
-           <p> Record inserted  and updated successfully.</p>
-         </div>
-         <?php
 
-          header ("Location: http://localhost/websites/rentalms/try/1/tenants.php");
+
+          header ("Location: http://localhost/websites/rentalms/try/1/house_status_update.php?hseno=$housenumber");
         }
       }else {
 

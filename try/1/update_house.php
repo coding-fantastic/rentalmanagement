@@ -33,25 +33,19 @@
           <p>
           <label class="w3-text-blue"><b>Features</b></label>
           <input class="w3-input w3-border" name="features" type="text" value="<?php echo $features ?>"></p>
-          <p>
+          <!-- <p>
           <label class="w3-text-blue"><b>Status</b></label>
           <select class="w3-input w3-border" name="status" value="<?php echo $status ?>">
             <option value="Vacant">Vacant</option>
             <option value="Occupied">Occupied</option>
           </select>
-          </p>
+          </p> -->
           <p>
           <button class="w3-btn w3-blue">Update</button></p>
         </form>
        </div><br>
 
        <div class="w3-container">
-         <?php
-            echo $house_number."<br>".$features."<br>".$status;
-
-          ?>
-          <?php echo "<br>";
-          echo $features; ?>
 
        </div>
 
