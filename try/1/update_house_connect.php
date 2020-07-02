@@ -13,20 +13,14 @@ if (isset($_REQUEST['housenumber'])){
   $housenumber = ucwords($housenumber);
   $features = ucwords(trim($_REQUEST['features']));
   $id = trim($_REQUEST['id']);
-  $status = ucwords(trim($_REQUEST['status']));
-
-  // echo $id."<br>". $housenumber."<br>".$features."<br>".$status;
+  //$status = ucwords(trim($_REQUEST['status']));
 
 
-
-  $query = "UPDATE   `houses` SET house_number='$housenumber', features='$features', status='$status' WHERE id=$id";
+  $query = "UPDATE   `houses` SET house_number='$housenumber', features='$features' WHERE id=$id";
   $result = mysqli_query($con, $query);
 
   if($result){
 
-    // echo "<div class='form'>
-    // <h3>You have paid successfully.</h3>  </div>";
-    // sleep(2);
     ?>
     <div class="w3-panel w3-pale-green w3-border">
       <p> Record updated successfully.</p>
