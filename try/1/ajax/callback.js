@@ -16,8 +16,9 @@ btn.addEventListener("click", function () {
   // console.log(pageCounter);
 
   ourRequest.send();
-  pageCounter++;
   // End of ajax call
+
+  pageCounter++;
 
   // if you press button three times the hide button will disaper
   if(pageCounter > 3){
@@ -32,8 +33,8 @@ function renderHTML(data) {
   var htmlString = "";
   // loop through  json data passed through the function and concatenate to htmlString variable
   for (var i = 0; i < data.length; i++) {
-    htmlString+= "<p>" + data[i].name + " is a " + data[i].species + ". </p>";
-  }
+    htmlString+= "<p>" + data[i].name + " is a " + data[i].species + " .</p> ";
+   }
 
   postContainer.insertAdjacentHTML('beforeend', htmlString);
 
