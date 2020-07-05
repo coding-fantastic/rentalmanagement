@@ -7,9 +7,9 @@
   <body>
     <header>
       <h1>JSON and AJAX</h1>
-      <button type="button" name="button" id="btn"></button>
+      <button type="button" name="button" id="btn">Fetch info for 3 new posts.</button>
     </header>
-    <div class="" id="post-info">
+    <div class="" id="animal-info">
 
     </div>
 
