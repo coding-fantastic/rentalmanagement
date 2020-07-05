@@ -5,6 +5,13 @@
     <title></title>
   </head>
   <body>
+    <header>
+      <h1>JSON and AJAX</h1>
+      <button type="button" name="button" id="btn"></button>
+    </header>
+    <div class="" id="post-info">
+
+    </div>
 
     <script src="callback.js" ></script>
 
